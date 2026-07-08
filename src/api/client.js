@@ -1,0 +1,62 @@
+// Thin fetch wrapper for the backend API.
+// Base URL points at the Spring Boot backend (default port 8080).
+const BASE_URL = 'http://localhost:8080/api';
+
+// ---------------------------------------------------------------
+// ===== PLACEHOLDER: FRONTEND TEAM (Task 1) =====
+// TODO: implement uploadImage(file) -> POST {BASE_URL}/images as
+// multipart/form-data (field name "file"). Return the parsed JSON
+// (ImageSummaryDto) on success, throw/handle errors otherwise.
+export async function uploadImage(file) {
+  throw new Error('TODO: implement uploadImage (Task 1 - frontend)');
+}
+
+// TODO: implement fetchImages() -> GET {BASE_URL}/images, returns the
+// list of ImageSummaryDto used to render the gallery.
+export async function fetchImages() {
+  throw new Error('TODO: implement fetchImages (Task 1 - frontend)');
+}
+
+// Helper (already usable, not a placeholder): builds the <img src> URL
+// for a given image id.
+export function imageDataUrl(imageId) {
+  return `${BASE_URL}/images/${imageId}/data`;
+}
+// ======================================
+
+// ---------------------------------------------------------------
+// ===== PLACEHOLDER: FRONTEND TEAM (Task 2) =====
+// TODO: implement likeImage(imageId) -> POST {BASE_URL}/images/{id}/like
+// TODO: implement unlikeImage(imageId) -> POST {BASE_URL}/images/{id}/unlike
+// Both should return the updated like count.
+export async function likeImage(imageId) {
+  throw new Error('TODO: implement likeImage (Task 2 - frontend)');
+}
+
+export async function unlikeImage(imageId) {
+  throw new Error('TODO: implement unlikeImage (Task 2 - frontend)');
+}
+// ======================================
+
+// ---------------------------------------------------------------
+// ===== PLACEHOLDER: FRONTEND TEAM (Task 3) =====
+// TODO: implement fetchComments(imageId) -> GET {BASE_URL}/images/{id}/comments
+// TODO: implement addComment(imageId, text) -> POST {BASE_URL}/images/{id}/comments
+export async function fetchComments(imageId) {
+  throw new Error('TODO: implement fetchComments (Task 3 - frontend)');
+}
+
+export async function addComment(imageId, text) {
+  throw new Error('TODO: implement addComment (Task 3 - frontend)');
+}
+// ======================================
+
+// ---------------------------------------------------------------
+// ===== PLACEHOLDER: FRONTEND TEAM (Task 4) =====
+// TODO: implement submitFeedback(message) -> POST {BASE_URL}/feedback
+// Keep in mind this may run from a page-unload handler, so consider
+// navigator.sendBeacon(...) instead of fetch() for reliability.
+export async function submitFeedback(message) {
+  throw new Error('TODO: implement submitFeedback (Task 4 - frontend)');
+}
+// ======================================
