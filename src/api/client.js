@@ -4,17 +4,21 @@ const BASE_URL = 'http://localhost:8080/api';
 
 // ---------------------------------------------------------------
 // ===== PLACEHOLDER: FRONTEND TEAM (Task 1) =====
-// TODO: implement uploadImage(file) -> POST {BASE_URL}/images as
-// multipart/form-data (field name "file"). Return the parsed JSON
-// (ImageSummaryDto) on success, throw/handle errors otherwise.
+
 export async function uploadImage(file) {
-  throw new Error('TODO: implement uploadImage (Task 1 - frontend)');
+  // TODO: build a FormData object with the file under the key "file",
+  // then POST it to `${BASE_URL}/images` using fetch().
+  //
+  // const formData = ...
+  // const res = await fetch(...);
+  if (!res.ok) throw new Error(await res.text());
+  return res.json();
 }
 
-// TODO: implement fetchImages() -> GET {BASE_URL}/images, returns the
-// list of ImageSummaryDto used to render the gallery.
 export async function fetchImages() {
-  throw new Error('TODO: implement fetchImages (Task 1 - frontend)');
+  const res = await fetch(`${BASE_URL}/images`);
+  if (!res.ok) throw new Error(await res.text());
+  return res.json();
 }
 
 // Helper (already usable, not a placeholder): builds the <img src> URL

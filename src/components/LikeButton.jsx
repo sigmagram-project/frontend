@@ -26,8 +26,12 @@ export default function LikeButton({ image }) {
   };
 
   return (
-    <button onClick={handleClick}>
-      {liked ? 'Unlike' : 'Like'} ({likeCount})
-    </button>
+      <button className={liked ? 'like-btn liked' : 'like-btn'} onClick={handleClick}>
+          <svg className="heart" viewBox="0 0 24 24" width="22" height="22"
+               fill={liked ? '#ed4956' : 'none'} stroke={liked ? '#ed4956' : '#262626'} strokeWidth="2">
+              <path d="M12 21s-6.7-4.3-9.5-8.1C.6 10 1 6.5 3.6 4.9c2.2-1.3 4.8-.7 6.4 1.1L12 8l2-2c1.6-1.8 4.2-2.4 6.4-1.1 2.6 1.6 3 5.1 1.1 8-2.8 3.8-9.5 8.1-9.5 8.1z"/>
+          </svg>
+          <span className="like-count">{likeCount}</span>
+      </button>
   );
 }
