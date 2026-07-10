@@ -1,7 +1,7 @@
 import { describe, it } from 'vitest';
 
 // =========================================================================
-// TASK 1 TESTS (frontend): Upload an image and display it
+// TESTS (frontend): Upload an image and display it
 // =========================================================================
 // ===== PLACEHOLDER: FRONTEND TEAM - WRITE TESTS HERE =====
 describe('ImageUpload', () => {

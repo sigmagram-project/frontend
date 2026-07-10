@@ -14,11 +14,7 @@ export default function ImageGallery() {
   return (
       <div className="gallery">
         {images.map((image) => (
-            <ImageCard
-                key={image.id}
-                image={image}
-                imageUrl={/* TODO: build the image URL using imageDataUrl(image.id) */}
-            />
+            <ImageCard key={image.id} image={image} imageUrl={imageDataUrl(image.id)} />
         ))}
       </div>
   );
