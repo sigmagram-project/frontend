@@ -21,9 +21,25 @@ export default function LikeButton({ image }) {
   //   2. Update `likeCount` and `liked` from the response.
   //   3. Handle errors (e.g. network failure) gracefully.
   // ======================================
-  const handleClick = async () => {
-    // TODO: implement
-  };
+    const handleClick = async () => {
+        try {
+            // TODO (Task 2 - frontend):
+            // Call likeImage(imageId) when liked is false.
+            // Call unlikeImage(imageId) when liked is true.
+            // Store the returned like count in updatedLikeCount.
+            let updatedLikeCount;
+            if (liked) {
+                // updatedLikeCount = ...
+            } else {
+                // updatedLikeCount = ...
+            }
+            // These parts are already provided.
+            setLikeCount(updatedLikeCount);
+            setLiked(!liked);
+        } catch (error) {
+            console.error('Failed to update like', error);
+        }
+    };
 
   return (
       <button className={liked ? 'like-btn liked' : 'like-btn'} onClick={handleClick}>

@@ -34,11 +34,22 @@ export function imageDataUrl(imageId) {
 // TODO: implement unlikeImage(imageId) -> POST {BASE_URL}/images/{id}/unlike
 // Both should return the updated like count.
 export async function likeImage(imageId) {
-  throw new Error('TODO: implement likeImage (Task 2 - frontend)');
+  // TODO: send a POST request to:
+  // `${BASE_URL}/images/${imageId}/like`
+  //
+  // const res = await fetch(...);
+  if (!res.ok) throw new Error(await res.text());
+  return res.json();
+
 }
 
 export async function unlikeImage(imageId) {
-  throw new Error('TODO: implement unlikeImage (Task 2 - frontend)');
+  // TODO: send a POST request to:
+  // `${BASE_URL}/images/${imageId}/unlike`
+  //
+  // const res = await fetch(...);
+  if (!res.ok) throw new Error(await res.text());
+  return res.json();
 }
 // ======================================
 
