@@ -1,7 +1,7 @@
 import { describe, it } from 'vitest';
 
 // =========================================================================
-// TASK 3 TESTS (frontend): Comment on the image
+// TASK TESTS (frontend): Comment on the image
 // =========================================================================
 // ===== PLACEHOLDER: FRONTEND TEAM - WRITE TESTS HERE =====
 describe('CommentSection', () => {

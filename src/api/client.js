@@ -57,20 +57,30 @@ export async function unlikeImage(imageId) {
   if (!res.ok) throw new Error(await res.text());
   return res.json();
 }
-// ======================================
 
 // ---------------------------------------------------------------
 // ===== PLACEHOLDER: FRONTEND TEAM (Task 3) =====
-// TODO: implement fetchComments(imageId) -> GET {BASE_URL}/images/{id}/comments
-// TODO: implement addComment(imageId, text) -> POST {BASE_URL}/images/{id}/comments
 export async function fetchComments(imageId) {
-  throw new Error('TODO: implement fetchComments (Task 3 - frontend)');
+  // TODO: send a GET request to:
+  // `${BASE_URL}/images/${imageId}/comments`
+  //
+  // const res = await fetch(...);
+  if (!res.ok) throw new Error(await res.text());
+  return res.json();
 }
 
+// ===== PLACEHOLDER: FRONTEND TEAM (Task 3) =====
 export async function addComment(imageId, text) {
-  throw new Error('TODO: implement addComment (Task 3 - frontend)');
+  // TODO: send a POST request to:
+  // `${BASE_URL}/images/${imageId}/comments`
+  //
+  // The body should be JSON:
+  // { text: text }
+  //
+  // const res = await fetch(...);
+  if (!res.ok) throw new Error(await res.text());
+  return res.json();
 }
-// ======================================
 
 // ---------------------------------------------------------------
 // ===== PLACEHOLDER: FRONTEND TEAM (Task 4) =====

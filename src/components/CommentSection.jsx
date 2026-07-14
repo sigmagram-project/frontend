@@ -3,7 +3,7 @@ import { addComment, fetchComments } from '../api/client.js';
 
 /**
  * =========================================================================
- * TASK 3: Comment on the image
+ * Comment on the image
  * =========================================================================
  */
 export default function CommentSection({ imageId }) {
@@ -11,20 +11,32 @@ export default function CommentSection({ imageId }) {
   const [text, setText] = useState('');
 
   // ---------------------------------------------------------------
-  // ===== PLACEHOLDER: FRONTEND TEAM =====
-  // TODO (Task 3 - frontend):
-  //   1. On mount, call fetchComments(imageId) and store in state.
-  //   2. On form submit, call addComment(imageId, text), clear the
-  //      input, and append/refetch so the new comment shows up.
+  // ===== PLACEHOLDER: FRONTEND TEAM (Task 3) =====
   // ======================================
-  useEffect(() => {
-    // TODO: implement
-  }, [imageId]);
+    useEffect(() => {
+        // TODO:
+        // Call fetchComments(imageId).
+        // Store the returned comments with setComments(...).
+        // Handle errors with .catch(...).
+    }, [imageId]);
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    // TODO: implement
-  };
+  // ---------------------------------------------------------------
+  // ===== PLACEHOLDER: FRONTEND TEAM (Task 3) =====
+  // ======================================
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        if (!text.trim()) {
+            return;
+        }
+        try {
+            // TODO:
+            // Call addComment(imageId, text).
+            // Add the returned comment to comments.
+            // Clear the input.
+        } catch (error) {
+            console.error('Failed to add comment', error);
+        }
+    };
 
   return (
     <div>
