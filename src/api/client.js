@@ -6,9 +6,15 @@ const BASE_URL = 'http://localhost:8080/api';
 // ===== PLACEHOLDER: FRONTEND TEAM (Task 1) =====
 
 export async function uploadImage(file) {
+  const formData = new FormData();
+  formData.append("file", file);
+
+  const res = await fetch(`${BASE_URL}/images`, {
+    method: "POST",
+    body: formData,
+  });
   // TODO: build a FormData object with the file under the key "file",
-  // then POST it to `${BASE_URL}/images` using fetch().
-  //
+  // then POST it to ${BASE_URL}/images using fetch().
   // const formData = ...
   // const res = await fetch(...);
   if (!res.ok) throw new Error(await res.text());

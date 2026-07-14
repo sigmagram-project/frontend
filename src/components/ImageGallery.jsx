@@ -6,6 +6,9 @@ export default function ImageGallery() {
   const [images, setImages] = useState([]);
 
   useEffect(() => {
+    fetchImages()
+        .then((data) => setImages(data))
+        .catch((error) => console.error(error));
     // TODO (Task 1 - frontend): call fetchImages() from ../api/client.js and
     // store the result in state (setImages) so the grid below can render it.
     // Don't forget to handle the case where the request fails (e.g. .catch()).
