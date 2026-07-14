@@ -3,7 +3,7 @@ import { likeImage, unlikeImage } from '../api/client.js';
 
 /**
  * =========================================================================
- * TASK 2: Like and unlike the image
+ * Like and unlike the image
  * =========================================================================
  * There's no login, so "has this visitor already liked this image" needs
  * to be tracked client-side (e.g. in local component state, or persisted
@@ -14,8 +14,7 @@ export default function LikeButton({ image }) {
   const [liked, setLiked] = useState(false);
 
   // ---------------------------------------------------------------
-  // ===== PLACEHOLDER: FRONTEND TEAM =====
-  // TODO (Task 2 - frontend):
+  // ===== PLACEHOLDER: FRONTEND TEAM (Task 2) =====
   //   1. On click, call likeImage(image.id) or unlikeImage(image.id)
   //      from ../api/client.js depending on current `liked` state.
   //   2. Update `likeCount` and `liked` from the response.
@@ -23,8 +22,7 @@ export default function LikeButton({ image }) {
   // ======================================
     const handleClick = async () => {
         try {
-            // TODO (Task 2 - frontend):
-            // Call likeImage(imageId) when liked is false.
+            //TODO Call likeImage(imageId) when liked is false.
             // Call unlikeImage(imageId) when liked is true.
             // Store the returned like count in updatedLikeCount.
             let updatedLikeCount;

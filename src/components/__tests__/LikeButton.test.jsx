@@ -1,7 +1,7 @@
 import { describe, it } from 'vitest';
 
 // =========================================================================
-// TASK 2 TESTS (frontend): Like and unlike the image
+// TASK TESTS (frontend): Like and unlike the image
 // =========================================================================
 // ===== PLACEHOLDER: FRONTEND TEAM - WRITE TESTS HERE =====
 describe('LikeButton', () => {
