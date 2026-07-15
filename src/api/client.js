@@ -36,15 +36,36 @@ export function imageDataUrl(imageId) {
 
 // ---------------------------------------------------------------
 // ===== PLACEHOLDER: FRONTEND TEAM (Task 2) =====
+
 // TODO: implement likeImage(imageId) -> POST {BASE_URL}/images/{id}/like
 // TODO: implement unlikeImage(imageId) -> POST {BASE_URL}/images/{id}/unlike
 // Both should return the updated like count.
+// POST {BASE_URL}/images/{imageId}/like
 export async function likeImage(imageId) {
-  throw new Error('TODO: implement likeImage (Task 2 - frontend)');
+  const res = await fetch(`${BASE_URL}/images/${imageId}/like`, {
+    method: "POST",
+  });
+
+  if (!res.ok) {
+    throw new Error("Failed to like image");
+  }
+
+  const data = await res.json();
+  return data.likeCount;
 }
 
+// POST {BASE_URL}/images/{imageId}/unlike
 export async function unlikeImage(imageId) {
-  throw new Error('TODO: implement unlikeImage (Task 2 - frontend)');
+  const res = await fetch(`${BASE_URL}/images/${imageId}/unlike`, {
+    method: "POST",
+  });
+
+  if (!res.ok) {
+    throw new Error("Failed to unlike image");
+  }
+
+  const data = await res.json();
+  return data.likeCount;
 }
 // ======================================
 
@@ -53,11 +74,31 @@ export async function unlikeImage(imageId) {
 // TODO: implement fetchComments(imageId) -> GET {BASE_URL}/images/{id}/comments
 // TODO: implement addComment(imageId, text) -> POST {BASE_URL}/images/{id}/comments
 export async function fetchComments(imageId) {
-  throw new Error('TODO: implement fetchComments (Task 3 - frontend)');
+  const res = await fetch(`${BASE_URL}/images/{id}/comments`);
+
+  if (!res.ok) {
+    throw new Error("Failed to fetch comments");
+  }
+
+  return await res.json();
 }
 
 export async function addComment(imageId, text) {
-  throw new Error('TODO: implement addComment (Task 3 - frontend)');
+  const res = await fetch(`${BASE_URL}/images/${imageId}/comments`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      text: text,
+    }),
+  });
+
+  if (!res.ok) {
+    throw new Error("Failed to add comment");
+  }
+
+  return await res.json();
 }
 // ======================================
 
