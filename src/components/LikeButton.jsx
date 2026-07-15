@@ -22,7 +22,23 @@ export default function LikeButton({ image }) {
   //   3. Handle errors (e.g. network failure) gracefully.
   // ======================================
   const handleClick = async () => {
-    // TODO: implement
+      const handleClick = async () => {
+          try {
+              let updatedLikeCount;
+
+              if (liked) {
+                  updatedLikeCount = await unlikeImage(image.id);
+                  setLiked(false);
+              } else {
+                  updatedLikeCount = await likeImage(image.id);
+                  setLiked(true);
+              }
+
+              setLikeCount(updatedLikeCount);
+          } catch (error) {
+              console.error("Failed to update like:", error);
+          }
+      };
   };
 
   return (
