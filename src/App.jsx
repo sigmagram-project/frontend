@@ -10,7 +10,6 @@ export default function App() {
     <div>
       <header className="app-header">
         <Logo />
-        <h1 style={{ fontSize: '1.1rem', margin: 0 }}>Image Board</h1>
       </header>
 
       <main>
