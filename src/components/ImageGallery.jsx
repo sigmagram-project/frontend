@@ -2,22 +2,23 @@ import { useEffect, useState } from 'react';
 import { fetchImages, imageDataUrl } from '../api/client.js';
 import ImageCard from './ImageCard.jsx';
 
-export default function ImageGallery() {
+export default function ImageGallery({ refreshKey }) {
   const [images, setImages] = useState([]);
 
   useEffect(() => {
     fetchImages()
-        .then((data) => setImages(data))
-        .catch((error) => console.error(error));
-    // TODO (Task 1 - frontend): call fetchImages() from ../api/client.js and
-    // store the result in state (setImages) so the grid below can render it.
-    // Don't forget to handle the case where the request fails (e.g. .catch()).
-  }, []);
+        .then(setImages)
+        .catch((err) => console.error('Failed to load images', err));
+  }, [refreshKey]);
 
   return (
       <div className="gallery">
         {images.map((image) => (
-            <ImageCard key={image.id} image={image} imageUrl={imageDataUrl(image.id)} />
+            <ImageCard
+                key={image.id}
+                image={image}
+                imageUrl={imageDataUrl(image.id)}
+            />
         ))}
       </div>
   );

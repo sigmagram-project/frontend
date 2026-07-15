@@ -4,16 +4,24 @@ import { uploadImage } from '../api/client.js';
 export default function ImageUpload({ onUploaded }) {
     const [file, setFile] = useState(null);
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        if (!file) return;
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+
+        if (!file) {
+            return;
+        }
+
         try {
             await uploadImage(file);
+
             setFile(null);
-            e.target.reset();
-            if (onUploaded) await onUploaded();
-        } catch (err) {
-            console.error('Upload failed', err);
+            event.target.reset();
+
+            if (onUploaded) {
+                onUploaded();
+            }
+        } catch (error) {
+            console.error('Upload failed', error);
         }
     };
 
@@ -22,8 +30,11 @@ export default function ImageUpload({ onUploaded }) {
             <input
                 type="file"
                 accept="image/*"
-                onChange={(e) => setFile(e.target.files?.[0] ?? null)}
+                onChange={(event) =>
+                    setFile(event.target.files?.[0] ?? null)
+                }
             />
+
             <button type="submit" disabled={!file}>
                 Upload
             </button>
