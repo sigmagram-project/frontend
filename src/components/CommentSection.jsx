@@ -1,60 +1,61 @@
 import { useEffect, useState } from 'react';
 import { addComment, fetchComments } from '../api/client.js';
 
-/**
- * =========================================================================
- * Comment on the image
- * =========================================================================
- */
 export default function CommentSection({ imageId }) {
-  const [comments, setComments] = useState([]);
-  const [text, setText] = useState('');
+    const [comments, setComments] = useState([]);
+    const [text, setText] = useState('');
 
-  // ---------------------------------------------------------------
-  // ===== PLACEHOLDER: FRONTEND TEAM (Task 3) =====
-  // ======================================
     useEffect(() => {
-        // TODO:
-        // Call fetchComments(imageId).
-        // Store the returned comments with setComments(...).
-        // Handle errors with .catch(...).
+        fetchComments(imageId)
+            .then(setComments)
+            .catch((error) => {
+                console.error('Failed to load comments', error);
+            });
     }, [imageId]);
 
-  // ---------------------------------------------------------------
-  // ===== PLACEHOLDER: FRONTEND TEAM (Task 3) =====
-  // ======================================
-    const handleSubmit = async (e) => {
-        e.preventDefault();
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+
         if (!text.trim()) {
             return;
         }
+
         try {
-            // TODO:
-            // Call addComment(imageId, text).
-            // Add the returned comment to comments.
-            // Clear the input.
+            const newComment = await addComment(imageId, text);
+
+            setComments((currentComments) => [
+                ...currentComments,
+                newComment,
+            ]);
+
+            setText('');
         } catch (error) {
             console.error('Failed to add comment', error);
         }
     };
 
-  return (
-    <div>
-      <ul>
-        {comments.map((c) => (
-          <li key={c.id}>{c.text}</li>
-        ))}
-      </ul>
-      <form onSubmit={handleSubmit}>
-        <input
-          value={text}
-          onChange={(e) => setText(e.target.value)}
-          placeholder="Add a comment..."
-        />
-        <button type="submit" disabled={!text.trim()}>
-          Post
-        </button>
-      </form>
-    </div>
-  );
+    return (
+        <div className="comments">
+            <div className="comment-list">
+                {comments.map((comment) => (
+                    <div key={comment.id} className="comment">
+                        {comment.text}
+                    </div>
+                ))}
+            </div>
+
+            <form onSubmit={handleSubmit}>
+                <input
+                    type="text"
+                    value={text}
+                    onChange={(event) => setText(event.target.value)}
+                    placeholder="Add a comment"
+                />
+
+                <button type="submit">
+                    Post
+                </button>
+            </form>
+        </div>
+    );
 }

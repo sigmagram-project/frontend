@@ -32,52 +32,48 @@ export async function fetchImages() {
 export function imageDataUrl(imageId) {
   return `${BASE_URL}/images/${imageId}/data`;
 }
-// ======================================
 
-// ---------------------------------------------------------------
-// ===== PLACEHOLDER: FRONTEND TEAM (Task 2) =====
-// TODO: implement likeImage(imageId) -> POST {BASE_URL}/images/{id}/like
-// TODO: implement unlikeImage(imageId) -> POST {BASE_URL}/images/{id}/unlike
-// Both should return the updated like count.
 export async function likeImage(imageId) {
-  // TODO: send a POST request to:
-  // `${BASE_URL}/images/${imageId}/like`
-  //
-  // const res = await fetch(...);
+  const res = await fetch(`${BASE_URL}/images/${imageId}/like`, {
+    method: 'POST',
+  });
+
   if (!res.ok) throw new Error(await res.text());
   return res.json();
-
 }
 
 export async function unlikeImage(imageId) {
-  // TODO: send a POST request to:
-  // `${BASE_URL}/images/${imageId}/unlike`
-  //
-  // const res = await fetch(...);
+  const res = await fetch(`${BASE_URL}/images/${imageId}/unlike`, {
+    method: 'POST',
+  });
+
   if (!res.ok) throw new Error(await res.text());
   return res.json();
 }
 
-// ---------------------------------------------------------------
-// ===== PLACEHOLDER: FRONTEND TEAM (Task 3) =====
 export async function fetchComments(imageId) {
-  // TODO: send a GET request to:
-  // `${BASE_URL}/images/${imageId}/comments`
-  //
-  // const res = await fetch(...);
+  const res = await fetch(
+      `${BASE_URL}/images/${imageId}/comments`
+  );
+
   if (!res.ok) throw new Error(await res.text());
   return res.json();
 }
 
-// ===== PLACEHOLDER: FRONTEND TEAM (Task 3) =====
 export async function addComment(imageId, text) {
-  // TODO: send a POST request to:
-  // `${BASE_URL}/images/${imageId}/comments`
-  //
-  // The body should be JSON:
-  // { text: text }
-  //
-  // const res = await fetch(...);
+  const res = await fetch(
+      `${BASE_URL}/images/${imageId}/comments`,
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          text: text,
+        }),
+      }
+  );
+
   if (!res.ok) throw new Error(await res.text());
   return res.json();
 }
